@@ -26,6 +26,11 @@ module.exports = app => {
 
   router.get("/PM", entries.findAllPM);
 
+  router.get("/PM/1", entries.findAllPM1);
+  router.get("/PM/2p5", entries.findAllPM2p5);
+  router.get("/PM/10", entries.findAllPM10);
+
+  //latest values :
 
   router.get("/latest/CO2", entries.findLatestCO2);
 
@@ -38,6 +43,10 @@ module.exports = app => {
   router.get("/latest/COV", entries.findLatestCOV);
 
   router.get("/latest/PM", entries.findLatestPM);
+
+  router.get("/PM/1", entries.findLatestPM1);
+  router.get("/PM/2p5", entries.findLatestPM2p5);
+  router.get("/PM/10", entries.findLatestPM10);
 
 
   router.get("/:id", entries.findOne);

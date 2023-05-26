@@ -288,9 +288,95 @@ exports.findAllPM= (req, res) => {
     });
 };
 
+exports.findAllPM1= (req, res) => {
+  Entries.findAll({ where: { type: "PM1" } })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Une erreur est survenue en tentant de récupérer le contenu de la table."
+      });
+    });
+};
+
+exports.findAllPM2p5= (req, res) => {
+  Entries.findAll({ where: { type: "PM2p5" } })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Une erreur est survenue en tentant de récupérer le contenu de la table."
+      });
+    });
+};
+
+exports.findAllPM10= (req, res) => {
+  Entries.findAll({ where: { type: "PM10" } })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Une erreur est survenue en tentant de récupérer le contenu de la table."
+      });
+    });
+};
 exports.findLatestPM = (req, res) => {
   Entries.findOne({
     where: { type: "PM" },
+    order: [['createdAt', 'DESC']]  
+  })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Une erreur est survenue en tentant de récupérer le contenu de la table."
+      });
+    });
+};
+
+exports.findLatestPM1 = (req, res) => {
+  Entries.findOne({
+    where: { type: "PM1" },
+    order: [['createdAt', 'DESC']]  
+  })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Une erreur est survenue en tentant de récupérer le contenu de la table."
+      });
+    });
+};
+
+exports.findLatestPM2p5 = (req, res) => {
+  Entries.findOne({
+    where: { type: "PM2p5" },
+    order: [['createdAt', 'DESC']]  
+  })
+    .then(data => {
+      res.send(data);
+    })
+    .catch(err => {
+      res.status(500).send({
+        message:
+          err.message || "Une erreur est survenue en tentant de récupérer le contenu de la table."
+      });
+    });
+};
+
+exports.findLatestPM10 = (req, res) => {
+  Entries.findOne({
+    where: { type: "PM10" },
     order: [['createdAt', 'DESC']]  
   })
     .then(data => {
